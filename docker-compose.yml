@@ -12,6 +12,8 @@ services:
       CatalogCollection: Listings
     depends_on:
       - mongo
+    networks:
+      - observability
 
   catalog-service:
     build:
@@ -26,6 +28,8 @@ services:
     depends_on:
       - listing-service
       - mongo
+    networks:
+      - observability
 
   mongo:
     image: mongo
@@ -33,6 +37,8 @@ services:
       - "27017:27017"
     volumes:
       - mongo-data:/data/db
+    networks:
+      - observability
         
   loki:
     image: grafana/loki:2.7.1
@@ -44,6 +50,8 @@ services:
       - ./loki-config.yaml:/etc/loki/local-config.yaml:ro
       - ./loki-data:/loki
       - ./wal:/wal
+    networks:
+      - observability
   grafana:
     image: grafana/grafana:latest
     container_name: grafana
@@ -56,6 +64,8 @@ services:
     volumes:
       - grafana-data:/var/lib/grafana
       - ./provisioning:/etc/grafana/provisioning
+    networks:
+      - observability
 
 
 volumes:
@@ -63,3 +73,7 @@ volumes:
   grafana-data:
   loki-data:
   wal:
+    
+networks:
+  observability:
+
