@@ -108,5 +108,23 @@ services:
     depends_on:
       - mongodb
 
+  auctionservice:
+    image: nicklasfa/auctionservice:latest
+    expose:
+      - "8080"
+    environment:
+      VAULT_ENDPOINT: "https://vault_dev:8201"
+      VAULT_TOKEN: "00000000-0000-0000-0000-000000000000"
+      Secret: "ouvesbvusbvsubvuosaebesvasuiesbu"
+      Issuer: "vesuvbsuevbsuovsibvoesovusevesvueos"
+      MongoConnectionString: "mongodb://admin:1234@mongodb:27017/?authSource=admin"
+      AuctionDatabase: "dockertest"
+      AuctionCollection: "Auctions"
+      LISTINGSERVICE_ENDPOINT: "http://nginx:4000"
+    depends_on:
+      - mongodb
+      - listingservice
+
+
 volumes:
   mongodb_data:
