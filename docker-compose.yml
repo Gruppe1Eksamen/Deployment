@@ -11,7 +11,7 @@ services:
       USERSERVICE_ENDPOINT: "http://nginx:4000"
     depends_on:
       - userservice
-        
+  
   listingservice:
     image: nicklasfa/listingservice:latest
     expose:
@@ -69,7 +69,7 @@ services:
       retries: 5
     command: >
       server -dev -dev-root-token-id="00000000-0000-0000-0000-000000000000"
-      
+  
   vault-init:
     image: hashicorp/vault:latest
     command: sh "/app/vault_init.sh"
@@ -125,6 +125,20 @@ services:
       - mongodb
       - listingservice
 
+  loki:
+    image: grafana/loki:2.9.3
+    ports:
+      - "3100:3100"
+
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"
+    depends_on:
+      - loki
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: admin
 
 volumes:
   mongodb_data:
