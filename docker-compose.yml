@@ -1,6 +1,6 @@
 services:
   authservice:
-    image: nicklasfa/authservice:latest
+    image: tajbaadsgaard/authservicewin:latest
     expose:
       - "8080"
     environment:
@@ -13,7 +13,7 @@ services:
       - userservice
         
   listingservice:
-    image: nicklasfa/listingservice:latest
+    image: tajbaadsgaard/listingservicewin:latest
     expose:
       - "8080"
     environment:
@@ -93,7 +93,7 @@ services:
       - mongodb_data:/data/db
 
   userservice:
-    image: nicklasfa/userservice:latest
+    image: tajbaadsgaard/userservicewin:latest
     container_name: userservice
     environment:
       MongoConnectionString: "mongodb://admin:1234@mongodb:27017/?authSource=admin"
@@ -109,7 +109,7 @@ services:
       - mongodb
 
   auctionservice:
-    image: nicklasfa/auctionservice:latest
+    image: tajbaadsgaard/auctionservicewin:latest
     expose:
       - "8080"
     environment:
