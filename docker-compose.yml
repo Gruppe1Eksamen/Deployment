@@ -1,6 +1,7 @@
 services:
   authservice:
     image: nicklasfa/authservice:latest
+    platform: linux/arm64
     expose:
       - "8080"
     environment:
@@ -95,6 +96,7 @@ services:
 
   userservice:
     image: nicklasfa/userservice:latest
+    platform: linux/arm64
     container_name: userservice
     environment:
       MongoConnectionString: "mongodb://admin:1234@mongodb:27017/?authSource=admin"
@@ -111,6 +113,7 @@ services:
 
   auctionservice:
     image: nicklasfa/auctionservice:latest
+    platform: linux/arm64
     expose:
       - "8080"
     environment:
