@@ -14,6 +14,7 @@ services:
   
   listingservice:
     image: nicklasfa/listingservice:latest
+    platform: linux/arm64
     expose:
       - "8080"
     environment:
