@@ -3,7 +3,7 @@ version: "3.8"
 services:
   authservice:
     build:
-      context: ./AuthenticationService/AuthenticationService/AuthenticationServiceAPI
+      context: ../../AuthenticationService/AuthenticationService/AuthenticationServiceAPI
       dockerfile: Dockerfile
     expose:
       - "8080"
@@ -18,7 +18,7 @@ services:
 
   listingservice:
     build:
-      context: ./ListingService/ListingService/ListingServiceAPI
+      context: ../../ListingService/ListingService/ListingServiceAPI
       dockerfile: Dockerfile
     expose:
       - "8080"
@@ -103,7 +103,7 @@ services:
 
   userservice:
     build:
-      context: ./Userservice/UserService/UserServiceAPI
+      context: ../../Userservice/UserService/UserServiceAPI
       dockerfile: Dockerfile
     expose:
       - "8080"
@@ -120,7 +120,7 @@ services:
 
   auctionservice:
     build:
-      context: ./AuctionService/AuctionService/AuctionServiceAPI
+      context: ../../AuctionService/AuctionService/AuctionServiceAPI
       dockerfile: Dockerfile
     expose:
       - "8080"
