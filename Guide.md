@@ -91,7 +91,8 @@ Body:
 "http://example.com/images/chair2.jpg"
 ]
 }
-3.2 Dette GET kald henter alle Listings og kræver authorization.
+
+3.2 Dette GET kald henter alle Listings og kræver ikke authorization.
 
 http://20.238.91.116:4000/api/listing/
 
