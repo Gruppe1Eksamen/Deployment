@@ -5,6 +5,11 @@
 PoC'et kan tilgås via forbindelsen nedenunder:
 http://20.238.91.116:4000/
 
+Hvis man vil køre det lokalt på Mac, skal Branch "Mac" tilgås.
+
+Hvis man vil køre det på Windows, skal Branch "Windows" tilgås.
+
+
 ***
 <h3>1. Authentication funktionalitet</h3>
 
